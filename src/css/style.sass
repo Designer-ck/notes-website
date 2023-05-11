@@ -1,0 +1,230 @@
+@import './general'
+@import './mixin'
+@import './variable'
+
+// common 
+.common_sec
+    position: fixed
+    left: 300px
+    top: 68px
+    width: calc(100% - 300px)
+    height: calc(100% - 68px)
+    padding: 30px
+    > h4
+        font-size: 24px
+        margin-bottom: 15px
+
+
+// end 
+
+// login page 
+
+.login_form
+    margin: 0 15px
+.login-container
+    max-width: 991px
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    .login_right
+        display: flex
+        flex-direction: column
+        justify-content: center 
+    img
+        min-height:100%
+    .form-style input
+        border:0
+        height:50px
+        border-radius:0
+        border-bottom:1px solid #ebebeb	
+    .form-style input:focus
+        border-bottom:1px solid #007bff	
+        box-shadow:none
+        outline:0
+        background-color:#ebebeb	
+    .sideline
+        display: flex
+        width: 100%
+        justify-content: center
+        align-items: center
+        text-align: center
+        color:#ccc
+    button
+        height:50px	
+    .sideline:before,
+    .sideline:after
+        content: ''
+        border-top: 1px solid #ebebeb
+        margin: 0 20px 0 0
+        flex: 1 0 20px
+    .sideline:after
+        margin: 0 0 0 20px
+
++tablet 
+    .login-container
+        .row
+            width: 100%
+
+
+
+.ra__dashboard
+  position: fixed
+  left: 0
+  top: 0
+  width: 300px
+  overflow: auto
+  height: 100vh
+  padding: 25px
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1)
+  z-index: 4
+  border-right: 1px solid $gray
+
+  .ra__dash-logo
+    a
+        color: $black
+    img
+      max-width: 200px
+
+      /* margin: 0 auto;
+
+    margin-bottom: 30px
+
+.ra__dash-header
+  position: fixed
+  border-bottom: 1px solid $gray
+  left: 300px
+  top: 0
+  width: calc(100vw - 300px)
+  height: 68px
+  z-index: 3
+
+  .ra__dash-head_profile
+    width: 30px
+    height: 30px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    overflow: hidden
+    margin-left: auto
+
+.ra__dash-header-wrapper
+  display: flex
+  padding: 10px
+  align-items: center
+
+  .ra_dash-head_left
+    display: flex
+    align-items: center
+    margin-left: auto
+    gap: 15px
+
+.ra_dash-head_left .ra__ad_task button
+    background-color: $black
+    color: $white
+    border-radius: 5px
+    font-family: $primary-font
+    padding: 10px 20px
+
+.ra_dash-head_right .ra__dash-head_profile button
+  background-color: transparent
+  padding: 0
+  border: none
+
+.offcanvas-header .btn-close
+  color: #000
+  z-index: 10
+  position: relative
+  filter: invert(100%) sepia(95%) saturate(0%) hue-rotate(199deg) brightness(106%) contrast(104%)
+
+.offcanvas.offcanvas-start
+  width: 300px !important
+
+.ra__dashboard .ra__dash-menu
+  li
+    a
+      color: #000
+      font-weight: 500
+      display: flex
+      width: 100%
+      padding: 10px 15px
+      &:focus, &.active
+        background-color: var(--sky_blue)
+        border-radius: 5px
+
+    margin-bottom: 5px
+    transition: all 0.5s
+
+    &:hover
+      background-color: $gray
+      border-radius: 5px
+
+  padding-left: 0px
+
+@media (min-width: 992px)
+  .ra_dash-head_right
+    display: none
+
+  body
+    padding-left: 300px
+
+@media (max-width: 991px)
+  aside.ra__dashboard
+    display: none
+
+  .ra__dash-header
+    left: 0px
+    top: 0
+    width: 100vw
+
+
+// home 
+
+.home_container
+    .home_notes_card
+        padding: 20px 15px
+        border: 1px solid $gray
+        border-radius: 10px
+        margin-bottom: 30px
+        p
+            color: $dark_gray
+
+    
+//add task
+.addtask_container
+    .add_task_form
+        width: 50%
+        .form-group
+            button
+                background-color: $black
+                color: $white
+                padding: 10px 20px
+                border-radius: 5px
+                font-weight: 500
+            label
+                display: block
+            input,textarea
+                width: 100%
+                padding: 15px
+                border: 1px solid $gray
+                border-radius: 5px
+
+// single note
+.single_page
+  border-top: 1px solid $gray
+  padding-top: 30px
+.notes_actions
+  padding-bottom: 30px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  .note_action
+    display: flex
+    gap: 15px
+  button
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: $black
+    border: 1px solid $black
