@@ -4,13 +4,14 @@
 
 // common 
 .common_sec
-    position: fixed
-    left: 300px
-    top: 68px
-    width: calc(100% - 300px)
-    height: calc(100% - 68px)
-    padding: 30px
+    // position: fixed
+    // left: 0px
+    // top: 68px
+    // width: calc(100% - 300px)
+    // height: calc(100% - 68px)
+    padding: 15px
     > h4
+        padding: 0 15px
         font-size: 24px
         margin-bottom: 15px
 
@@ -89,13 +90,14 @@
       /* margin: 0 auto;
 
     margin-bottom: 30px
-
+.gap-15
+  gap: 15px
 .ra__dash-header
-  position: fixed
+  // position: fixed
   border-bottom: 1px solid $gray
-  left: 300px
+  left: 0px
   top: 0
-  width: calc(100vw - 300px)
+  width: 100%
   height: 68px
   z-index: 3
 
@@ -162,12 +164,16 @@
 
   padding-left: 0px
 
-@media (min-width: 992px)
+@media (min-width: 768px)
   .ra_dash-head_right
     display: none
 
-  body
-    padding-left: 300px
+@media (max-width: 767px)
+  .header_search
+    display: none    
+
+  // body
+  //   padding-left: 300px
 
 @media (max-width: 991px)
   aside.ra__dashboard
@@ -183,10 +189,19 @@
 
 .home_container
     .home_notes_card
-        padding: 20px 15px
-        border: 1px solid $gray
+        padding: 15px
+        cursor: pointer
+        border: 1px solid #212121
         border-radius: 10px
         margin-bottom: 30px
+        min-height: 150px
+        max-height: 150px
+        overflow: hidden
+        box-shadow: 8px 8px 2px 0px #212121
+        transition: all 0.5s
+        &:hover
+          box-shadow: 3px 3px 0px 0px #212121
+          transform: translate(8px,8px)
         p
             color: $dark_gray
 
@@ -194,7 +209,6 @@
 //add task
 .addtask_container
     .add_task_form
-        width: 50%
         .form-group
             button
                 background-color: $black

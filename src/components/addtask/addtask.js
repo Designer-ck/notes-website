@@ -11,8 +11,8 @@ const Addtask = (props) => {
     const navigate = useNavigate();
   
     const validationSchema = Yup.object().shape({
-      title: Yup.string().required("Please Enter Advice Title"),
-      description: Yup.string().required("Please Enter Advice Details"),
+      title: Yup.string().required("Please Enter Note Title"),
+      description: Yup.string().required("Please Enter Note Description"),
     });
   
     const formik = useFormik({
@@ -25,7 +25,7 @@ const Addtask = (props) => {
         console.log("add advice values: ", values);
         const { data, error } = await supabase
           .from("notes")
-          .insert({ ...values });
+          .insert({ ...values, modified_at: new Date() });
         if (!error) {
           toast.success("Note added successfully ✅", {
             position: toast.POSITION.TOP_RIGHT,
@@ -35,10 +35,10 @@ const Addtask = (props) => {
           // props?.onAdd();
           navigate("/")
         } else {
-          toast.error("Error while adding Advice", {
+          toast.error("Error while adding notes", {
             position: toast.POSITION.TOP_RIGHT,
           });
-          console.log("error white updating advice details: ", error);
+          console.log("error white updating notes: ", error);
         }
       },
     });
@@ -47,7 +47,7 @@ const Addtask = (props) => {
     <>
     <section className='common_sec addtask_container'>
         <h4>Add Task</h4>
-        <div className='add_task_form'>
+        <div className='add_task_form col-md-6 col-12'>
             <form action="">
                 <div className='form-group'>
                     <label>Title</label>

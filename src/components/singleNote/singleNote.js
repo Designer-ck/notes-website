@@ -8,7 +8,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from '../../utils/supabaseclient';
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
-import * as Yup from "yup";
+import * as Yup from "yup"; 
+import moment from 'moment/moment';
 
 
 const SingleNote = () => {
@@ -34,7 +35,7 @@ const SingleNote = () => {
       .select("*")
       .eq("id", id);
     if (!error) {
-        console.log("data: ", data);
+        console.log("data: ", data, moment(data[0]?.modified_at).format("h:mm:ss a"));
         setDetails(data[0]);
     } else {
       console.log("error fetching advice details: ", error);
@@ -72,7 +73,7 @@ const SingleNote = () => {
       //   console.log("values: ", values);
       const { data, error } = await supabase
         .from("notes")
-        .update({ ...values })
+        .update({ ...values, modified_at: new Date() })
         .eq("id", id);
       if (!error) {
         toast.success("Note updated successfully ✅", {
@@ -80,7 +81,7 @@ const SingleNote = () => {
           className: "bg-success text-white",
         });
         handleClose()
-        getAdviceDetail()
+        getAdviceDetails()
         // navigate(`/task/${details.id}`);
         // navigate("/");
       } else {

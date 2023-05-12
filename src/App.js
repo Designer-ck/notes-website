@@ -5,11 +5,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/home/home';
 import Addtask from './components/addtask/addtask';
 import SingleNote from './components/singleNote/singleNote';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
-    <BrowserRouter >
+    
+    <ToastContainer />
       {/* <Login /> */}
       <Sidebar />
       <Routes>
@@ -17,7 +20,7 @@ function App() {
         <Route path='/addtask' element={<Addtask />}  />
         <Route path='/task/:id' element={<SingleNote />}  />
       </Routes>
-    </BrowserRouter>
+    
     </>
   );
 }
